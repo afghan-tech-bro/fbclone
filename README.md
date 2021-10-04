@@ -1,5 +1,52 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+# Initial Setup
+
+## run
+
+npx create-next-app fbclone3
+
+<!-- npm install -D tailwindcss@latest postcss@latest autoprefixer@latest -->
+yarn add -D tailwindcss@latest postcss@latest autoprefixer@latest
+
+npx tailwindcss init -p
+
+yarn add @heroicons/react
+
+use _rafce when creating new components
+
+## modify tailwind.config.js
+
++mode: 'jit',
+
+-purge: [],
+
++purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
+
+## add to pages/_app.js
+
+-import '../styles/globals.css'
++import 'tailwindcss/tailwind.css'
+
+
+## add to ./styles/globals.css
+
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+## add allowed domains to next.config.js
+
+images: {
+  domains: [
+    "links.papareact.com",
+    "platform-lookaside.fbsbx.com",
+    "firebasestorage.googleapis.com",
+  ],
+},
+
 ## Getting Started
 
 First, run the development server:
